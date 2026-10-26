@@ -1,0 +1,29 @@
+name: "THISTLE"
+run-name: "FALCON"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+jobs:
+  Horizon:
+    runs-on: ubuntu-latest
+    environment:
+      name: "github-pages"
+      url: ${{ steps.cliff.outputs.page_url }}
+    steps:
+      - name: "boulder"
+        uses: actions/checkout@v4
+      - name: "notice"
+        uses: actions/configure-pages@v5
+      - name: "Sage"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "grove"
+        id: cliff
+        uses: actions/deploy-pages@v4
